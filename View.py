@@ -1,5 +1,6 @@
 from tkinter import *
 from tkinter import ttk
+from tkinter import messagebox
 import tkinter.font as font
 from datetime import datetime
 import time
@@ -39,6 +40,18 @@ class View(Tk):
         self.__char_input.grid(row=1, column=1, padx=5, pady=2, sticky=EW)
         # Enter klahvi funktionaalsus
         self.bind('<Return>', lambda event: self.__controller.btn_send_click())
+
+        self.protocol("WM_DELETE_WINDOW", self.on_closing)
+
+    def on_closing(self):
+        if messagebox.askokcancel("Väljumine", "Kas tõesti soovid lõpetada?"):
+            self.destroy()
+
+    def show_message(self, result):
+        if result == "won":
+            messagebox.showinfo("Победа!", "Вы победили!")
+        if result == "lose":
+            messagebox.showinfo("Проигрыш!", "Вы проиграли!")
 
     @property
     def btn_new(self):

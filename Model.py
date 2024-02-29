@@ -99,7 +99,7 @@ class Model:
                 new_hidden_word = ""
                 for i, char1 in enumerate(self.random_word):
                     if char1 == letter:
-                        new_hidden_word += user_input
+                        new_hidden_word += letter
                     elif self.hidden_word[i] != '-':
                         new_hidden_word += self.hidden_word[i]
                     else:
