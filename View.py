@@ -49,9 +49,9 @@ class View(Tk):
 
     def show_message(self, result):
         if result == "won":
-            messagebox.showinfo("Победа!", "Вы победили!")
+            messagebox.showinfo("Võit!", "Sa oled võitnud!")
         if result == "lose":
-            messagebox.showinfo("Проигрыш!", "Вы проиграли!")
+            messagebox.showinfo("Kahjum!", "Sa kaotasid!")
 
     @property
     def btn_new(self):

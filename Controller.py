@@ -62,7 +62,7 @@ class Controller:
             self.btn_cancel_click()
             self.__view.show_message('won')
             # TODO Küsi mängija nime (simpledialog.askstring)
-            player_name = simpledialog.askstring("Введите имя", "Введите ваше имя:")
+            player_name = simpledialog.askstring("Enter your name", "Enter your name:")
             # TODO Saada sisestatud mängija nimi ja mängu aeg sekundites mudelisse kus toimub kogu muu tegevus kasutajanimega
             if player_name:
                 self.__model.add_player_score(player_name, self.__game_time.counter)
