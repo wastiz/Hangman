@@ -55,18 +55,6 @@ class Controller:
 
     def btn_send_click(self):
         # TODO Kontrollida kas mäng on läbi.
-        if self.__model.hidden_word == self.__model.random_word:
-            print('You have won!')
-            # TODO JAH puhul peata mänguaeg
-            # TODO Seadista nupud õigeks (meetod juba siin klassis olemas)
-            self.btn_cancel_click()
-            self.__view.show_message('won')
-            # TODO Küsi mängija nime (simpledialog.askstring)
-            player_name = simpledialog.askstring("Enter your name", "Enter your name:")
-            # TODO Saada sisestatud mängija nimi ja mängu aeg sekundites mudelisse kus toimub kogu muu tegevus kasutajanimega
-            if player_name:
-                self.__model.add_player_score(player_name, self.__game_time.counter)
-                return
 
         print(self.__model.wrong_guesses)
         if self.__model.wrong_guesses >= 11:
@@ -93,3 +81,16 @@ class Controller:
         # TODO on mäng läbi. MEETOD siin samas klassis.
         # if self.__model.get_wrong_guesses() > 0:
         #     self.__view.change_image(self.__model.get_wrong_guesses())
+
+        if self.__model.hidden_word == self.__model.random_word:
+            print('You have won!')
+            # TODO JAH puhul peata mänguaeg
+            # TODO Seadista nupud õigeks (meetod juba siin klassis olemas)
+            self.btn_cancel_click()
+            self.__view.show_message('won')
+            # TODO Küsi mängija nime (simpledialog.askstring)
+            player_name = simpledialog.askstring("Enter your name", "Enter your name:")
+            # TODO Saada sisestatud mängija nimi ja mängu aeg sekundites mudelisse kus toimub kogu muu tegevus kasutajanimega
+            if player_name:
+                self.__model.add_player_score(player_name, self.__game_time.counter)
+                return
