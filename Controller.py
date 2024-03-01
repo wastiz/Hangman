@@ -43,7 +43,7 @@ class Controller:
         self.__view.change_image(0)
         self.__model.setup_new_game()
         self.__view.lbl_result.config(text=self.__model.hidden_word)
-        self.__view.lbl_error.config(text="Vigased tähed:")
+        self.__view.lbl_error.config(text="Vigased tähed:", fg="red")
         self.__game_time.reset()
         self.__game_time.start()
 
@@ -72,7 +72,7 @@ class Controller:
         self.__view.lbl_result.config(text=self.__model.hidden_word)
         # TODO Muuda teksti Vigased tähed
         vigased = "Vigased tähed: " + self.__model.get_wrong_guesses_as_string()
-        self.__view.lbl_error.config(text=vigased)
+        self.__view.lbl_error.config(text=vigased, fg="red")
         # TODO Tühjanda sisestus kast (ISESESIVALT TUNNIS KOHE)
         self.__view.char_input.delete(0, 'end')
         self.__view.change_image(self.__model.wrong_guesses)

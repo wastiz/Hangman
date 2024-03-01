@@ -124,7 +124,7 @@ class View(Tk):
         Label(self.__frame_top, text='Sisesta täht', anchor='w',
               font=self.__default_bold).grid(row=1, column=0, padx=5, pady=2, sticky=EW)
         # Kolm järgnevat labeli
-        error = Label(self.__frame_top, text='Vigased tähed', anchor='w', font=self.__default_bold)
+        error = Label(self.__frame_top, text='Vigased tähed', anchor='w', font=self.__default_bold, fg="red")
         lbl_time = Label(self.__frame_top, text='00:00:00', font=self.__default)
         result = Label(self.__frame_bottom, text='Mängime!'.upper(), font=self.__big_font)
         word = Label(self.__frame_bottom, text='___'.upper(), font=self.__big_font)

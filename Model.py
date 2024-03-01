@@ -91,6 +91,9 @@ class Model:
     def process_user_input(self, user_input):
         if user_input:
             letter = user_input[0].lower()
+            if letter in self.__typed_letters:
+                self.wrong_guesses += 1
+                self.__wrong_letters.append(letter)
             self.__typed_letters.append(letter)
             if letter in self.random_word:
                 for i, char in enumerate(self.random_word):
