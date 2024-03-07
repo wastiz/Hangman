@@ -42,10 +42,36 @@ class View(Tk):
         self.bind('<Return>', lambda event: self.__controller.btn_send_click())
 
         self.protocol("WM_DELETE_WINDOW", self.on_closing)
-
+        self.language = ''
     def on_closing(self):
         if messagebox.askokcancel("Väljumine", "Kas tõesti soovid lõpetada?"):
             self.destroy()
+
+    def show_choice(self):
+        language_window = Toplevel(self)
+        language_window.geometry("300x150")
+        language_window.title("Vali keele")
+        language_window.resizable(False, False)
+
+        language_window.lift(self)
+        language_window.grab_set()
+        language_window.focus()
+
+        language_var = StringVar()
+        language_var.set("Eesti")
+
+        Label(language_window, text="Vali keele:").pack()
+
+        language_combobox = ttk.Combobox(language_window, textvariable=language_var, values=["Eesti", "Inglise"])
+        language_combobox.pack()
+
+        def save_selection():
+            selected_language = language_var.get()
+            print("Valitud keel:", selected_language)
+            self.language = selected_language
+            language_window.destroy()
+
+        Button(language_window, text="Vali", command=save_selection).pack()
 
     def show_message(self, result):
         if result == "won":
@@ -82,6 +108,7 @@ class View(Tk):
         return self.__lbl_error
 
     def main(self):
+        self.show_choice()
         self.mainloop()
 
     @staticmethod

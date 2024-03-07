@@ -41,7 +41,7 @@ class Controller:
         self.buttons_to_game()
         # Muuda pilti id-ga 0
         self.__view.change_image(0)
-        self.__model.setup_new_game()
+        self.__model.setup_new_game(self.__view.language)
         self.__view.lbl_result.config(text=self.__model.hidden_word)
         self.__view.lbl_error.config(text="Vigased tähed:", fg="red")
         self.__game_time.reset()

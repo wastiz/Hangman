@@ -6,7 +6,7 @@ from Score import Score
 
 class Model:
     def __init__(self):
-        self.__database = 'databases/hangman_words_ee.db'   # Andmebaas
+        self.__database = ''   # Andmebaas databases/hangman_words_ee.db
         # pip install Pillow - piltidega majandamiseks (terminalis)
         self.__image_files = glob.glob('images/*.png')   # List mängu piltidega
         # TODO juhuslik sõna
@@ -57,7 +57,12 @@ class Model:
     # TODO Seadistab uue sõna äraarvamiseks
     # TODO Seadistab mõningate muutujate algväärtused (vaata ___init__ kolme viimast TODO. Neljas muutuja on eelmine rida)
     # TODO Seadistab ühe muutuja nii et iga tähe asemel paneb allkiriipsu mida näidata aknas äraarvatavas sõnas (LIST)
-    def setup_new_game(self):
+
+    def setup_new_game(self, language):
+        if language == 'Inglise':
+            self.database = 'databases/hangman_words_en.db'
+        else:
+            self.database = 'databases/hangman_words_ee.db'
         self.random_word = self.get_random_word()
         print(self.random_word)
         self.hidden_word = len(self.random_word) * '-'
